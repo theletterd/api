@@ -10,7 +10,7 @@ app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 
 @app.route("/", methods=["GET"])
 def root():
-    return "Hi there!"
+    return jsonify({"message": "Hi there!"})
 
 @app.route("/time", methods=["GET"])
 def get_time():
