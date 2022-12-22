@@ -31,6 +31,19 @@ def about():
     }
     return jsonify(data)
 
+@app.route("/links", methods=["GET"])
+def links():
+    name_and_link = (
+        ("Resume", "https://resume.theletterd.co.uk"),
+        ("API", "https://api.theletterd.co.uk"),
+        ("Stats", "https://stats.theletterd.co.uk"),
+        ("Goals", "https://goals.theletterd.co.uk"),
+        ("Blog", "https://blog.theletterd.co.uk"),
+        ("Github", "https://github.com/theletterd")
+    )
+    data = [dict(name=name, link=link) for name, link in name_and_link]
+    return jsonify(data)
+
 @app.route("/who", methods=["GET"])
 def who():
     data = {
@@ -43,5 +56,3 @@ def who():
 
 if __name__ == '__main__':
     app.run()
-
-
