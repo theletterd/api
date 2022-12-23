@@ -1,8 +1,10 @@
 import time
 
+from flask_cors import cross_origin
+
 from flask import Flask
 from flask import jsonify
-#from flask import render_template
+
 
 app = Flask(__name__)
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
@@ -32,6 +34,7 @@ def about():
     return jsonify(data)
 
 @app.route("/links", methods=["GET"])
+@cross_origin(origins=r"https://*theletterd.co.uk")
 def links():
     name_and_link = (
         ("Resume", "https://resume.theletterd.co.uk"),
